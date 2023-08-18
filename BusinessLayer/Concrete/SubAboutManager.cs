@@ -18,7 +18,7 @@ namespace BusinessLayer.Concrete
             _subAboutDal = subAboutDal;
         }
 
-        public SubAbout GetByID(int id)
+        public SubAbout TGetByID(int id)
         {
             throw new NotImplementedException();
         }
