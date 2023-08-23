@@ -29,19 +29,19 @@ Author URL: http://w3layouts.com
                 <div class="row">
                     @foreach (var item in Model)
                     {
-                    <div class="col-lg-4 col-md-4 col-6 mt-md-0">
-                        <div class="column">
-                            <a href="/Destination/DestinationDetails/@item.DestinationID"><img src="@item.Image" alt="" class="img-fluid"></a>
-                            <div class="info">
-                                <h4><a href="/Destination/DestinationDetails/@item.DestinationID">@item.City</a></h4>
-                                <p>@item.DayNight </p>
-                                <div class="dst-btm">
-                                    <h6 class="">Start From </h6>
-                                    <span>$1690</span>
+                        <div class="col-lg-4 col-md-4 col-6 mt-md-0">
+                            <div class="column">
+                                <a href="/Destination/DestinationDetails/@item.DestinationID"><img src="@item.Image" alt="" class="img-fluid"></a>
+                                <div class="info">
+                                    <h4><a href="/Destination/DestinationDetails/@item.DestinationID">@item.City</a></h4>
+                                    <p>@item.DayNight </p>
+                                    <div class="dst-btm">
+                                        <h6 class="">Start From </h6>
+                                        <span>$1690</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     }
                     
 

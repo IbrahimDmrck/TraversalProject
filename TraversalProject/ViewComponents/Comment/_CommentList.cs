@@ -10,11 +10,11 @@ namespace TraversalProject.ViewComponents.Comment
 {
     public class _CommentList : ViewComponent
     {
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(int id)
         {
-            FeatureManager featureManager = new FeatureManager(new EfFeatureDal());
-            var value = featureManager.TGetList();
-            return View();
+            CommentManager commentManager = new CommentManager(new EfCommentDal());
+            var value = commentManager.TGetDestinationById(id);
+            return View(value);
         }
     }
 }
