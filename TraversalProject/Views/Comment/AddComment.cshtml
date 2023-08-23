@@ -4,7 +4,7 @@
     <p class="mb-4">
         *  İşaretli alanları doldurmanız gerekmektedir
     </p>
-    <form method="post">
+    <form method="post" asp-action="AddComment" asp-controller="Comment">
 
         <div class="form-group">
             <textarea name="CommentContent" class="form-control" placeholder="Yorumunuz*" required=""
@@ -12,12 +12,12 @@
         </div>
         <div class="input-grids row">
 
-            <div class="form-group col-lg-6">
-                <input type="text" name="CommentUser" class="form-control" placeholder="Adınız*"
+            <div class="form-group col-lg-12">
+                <input type="text" name="CommentUser" class="form-control" placeholder="Ad   Soyad*"
                        required="">
             </div>
             <div class="form-group col-lg-6">
-                <input type="text" name="DestinationID" class="form-control" placeholder="Tur Id*" required="">
+                <input type="text" name="DestinationID" class="form-control"  hidden value="@ViewBag.dest_id" required="">
             </div>
         </div>
 
