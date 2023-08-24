@@ -1,66 +1,126 @@
-﻿
+﻿@model TraversalProject.Models.UserRegisterViewModel
 @{
     Layout = null;
 }
 
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang="zxx">
+
 <head>
-    <meta charset="utf-8">
     <title>Traversal | Kayıt Ol</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="Full Screen Enroll Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
 
-    <!-- LINEARICONS -->
-    <link rel="stylesheet" href="~/colorlib-regform-26/fonts/linearicons/style.css">
-
-    <!-- STYLE CSS -->
-    <link rel="stylesheet" href="~/colorlib-regform-26/css/style.css">
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- Meta tag Keywords -->
+    <!-- css files -->
+    <link rel="stylesheet" href="~/web/css/style.css" type="text/css" media="all" />
+    <!-- Style-CSS -->
+    <link rel="stylesheet" href="~/web/css/font-awesome.min.css">
+    <!-- Font-Awesome-Icons-CSS -->
+    <!-- //css files -->
+    <!-- web-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=devanagari,latin-ext"
+          rel="stylesheet">
+    <!-- //web-fonts -->
 </head>
 
 <body>
+    <div class="main-w3ls">
+        <div class="left-content">
+            <div class="w3ls-content">
+                <!-- logo -->
+                <h1>
+                    <a href="index.html"><span class="fa fa-magic"></span>Kayıt Ol</a>
+                </h1>
+                <!-- //logo -->
+                <h2>Sizde Traversal Dünyasına Katılın ve Dünyayı Keşfedin.</h2>
+                <a href="#" class="button-w3ls">
+                    <span class="fa fa-long-arrow-right"></span>
+                </a>
 
-    <div class="wrapper">
-        <div class="inner">
-            <img src="~/colorlib-regform-26/images/image-1.png" alt="" class="image-1">
-            <form action="">
-                <h3>Yeni Hesap Oluşturun</h3>
-                <div class="form-holder">
-                    <span class="lnr lnr-user"></span>
-                    <input type="text" class="form-control" placeholder="Adınız">
-                </div>
-                <div class="form-holder">
-                    <span class="lnr lnr-user"></span>
-                    <input type="text" class="form-control" placeholder="Soyadınız">
-                </div>
-                <div class="form-holder">
-                    <span class="lnr lnr-envelope"></span>
-                    <input type="text" class="form-control" placeholder="Mail adresiniz">
-                </div>
-                <div class="form-holder">
-                    <span class="lnr lnr-phone-handset"></span>
-                    <input type="password" class="form-control" placeholder="Telefon numaranız">
-                </div>
-                <div class="form-holder">
-                    <span class="lnr lnr-lock"></span>
-                    <input type="password" class="form-control" placeholder="Şifreniz">
-                </div>
-                <div class="form-holder">
-                    <span class="lnr lnr-lock"></span>
-                    <input type="password" class="form-control" placeholder="Şifreniz Tekrar">
-                </div>
-                <button>
-                    <span>Kayıt Ol</span>
-                </button>
-                <div style="padding-top:10px;text-align:center">
-                    <a href="/Login/SignIn">Giriş yap</a>
-                </div>
-            </form>
-            <img src="~/colorlib-regform-26/images/image-2.png" alt="" class="image-2">
+            </div>
+
         </div>
-
+        <div class="right-form-agile">
+            <!-- content -->
+            <div class="sub-main-w3">
+                <h3>Kayıt Ol</h3>
+                <form method="post">
+                    <div class="form-style-agile">
+                        <label>İsim</label>
+                        <div class="pom-agile">
+                            <span class="fa fa-user"></span>
+                            <input asp-for="Name" type="text" required="">
+                        </div>
+                        <span style="color:red;" asp-validation-for="Name"></span>
+                    </div>
+                    <div class="form-style-agile">
+                        <label>Soyisim</label>
+                        <div class="pom-agile">
+                            <span class="fa fa-user"></span>
+                            <input asp-for="Surname" type="text" required="">
+                        </div>
+                        <span style="color:red;" asp-validation-for="Surname"></span>
+                    </div>
+                    <div class="form-style-agile">
+                        <label>Kullanıcı adı</label>
+                        <div class="pom-agile">
+                            <span class="fa fa-user"></span>
+                            <input asp-for="Username" type="text" required="">
+                        </div>
+                        <span style="color:red;" asp-validation-for="Username"></span>
+                    </div>
+                    <div class="form-style-agile">
+                        <label>Email</label>
+                        <div class="pom-agile">
+                            <span class="fa fa-envelope-open"></span>
+                            <input asp-for="Mail" type="email" >
+                        </div>
+                        <span style="color:red;" asp-validation-for="Mail"></span>
+                    </div>
+                    <div class="form-style-agile">
+                        <label>Şifre</label>
+                        <div class="pom-agile">
+                            <span class="fa fa-key"></span>
+                            <input asp-for="Password" type="password" id="password1" required="">
+                        </div>
+                        <span style="color:red;" asp-validation-for="Password"></span>
+                    </div>
+                    <div class="form-style-agile">
+                        <label>Şifre tekrar</label>
+                        <div class="pom-agile">
+                            <span class="fa fa-key"></span>
+                            <input asp-for="ConfirmPassword" type="password" id="password2" required="">
+                        </div>
+                        <span style="color:red;" asp-validation-for="ConfirmPassword"></span>
+                    </div>
+                    <div class="sub-agile">
+                        <input type="checkbox" id="brand1" value="">
+                        <label for="brand1">
+                            <span></span>Şartlar ve Koşulları Kabul Ediyorum
+                        </label>
+                    </div>
+                    <input type="submit" value="Kayıt Ol">
+                </form>
+                <div style="text-align:center;padding-top:15px;">
+                    <span class="fa fa-sign-in"  style="color:white;"></span>
+                    <a href="/Login/SignIn" style="color:white;">Giriş Yap</a>
+                </div>
+            </div>
+        </div>
     </div>
+    <!-- //content -->
 
-    <script src="~/colorlib-regform-26/js/jquery-3.3.1.min.js"></script>
-    <script src="~/colorlib-regform-26/js/main.js"></script>
 </body>
+
 </html>
