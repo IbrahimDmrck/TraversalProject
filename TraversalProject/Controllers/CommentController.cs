@@ -18,6 +18,7 @@ namespace TraversalProject.Controllers
         {
             return PartialView();
         }
+
         [HttpPost]
         public IActionResult AddComment(Comment comment)
         {
