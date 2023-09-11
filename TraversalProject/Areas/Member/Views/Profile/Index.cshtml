@@ -6,18 +6,23 @@
 
 <h1>Profil Bilgileri Düzenleme Sayfası</h1>
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     @Html.Label("Adınız");
     <input type="text" asp-for="Name" class="form-control" /> <br />
     @Html.Label("Soyadınız");
     <input type="text" asp-for="Surname" class="form-control" /> <br />
     @Html.Label("Mail Adresiniz");
-    <input type="text" asp-for="Mail" class="form-control" /> <br />
+    <input type="email" asp-for="Mail" class="form-control" /> <br />
     @Html.Label("Şifreniz");
-    <input type="text" asp-for="Passowrd" class="form-control" /> <br />
+    <input type="password" asp-for="Passowrd" class="form-control" /> <br />
     @Html.Label("Şifre Tekrar");
-    <input type="text" asp-for="ConfirmPassword" class="form-control" /> <br />
+    <input type="password" asp-for="ConfirmPassword" class="form-control" /> <br />
     @Html.Label("Telefon Numaranız");
-    <input type="text" asp-for="PhoneNumber" class="form-control" /> <br />
+    <input type="tel" asp-for="PhoneNumber" class="form-control" /> <br />
+    @Html.Label("Profil Fotoğrafınız");
+    <input type="file" asp-for="Image" class="form-control" /> <br />
+
+    <button class="btn btn-outline-primary">Bilgileri Güncelle</button>
+
 </form>
 
