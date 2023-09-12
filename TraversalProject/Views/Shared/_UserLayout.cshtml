@@ -22,6 +22,8 @@
     @await Html.PartialAsync("~/Views/MemberLayoutPartial/_RightbarPartial.cshtml")
     <!--   Core JS Files   -->
     @await Html.PartialAsync("~/Views/MemberLayoutPartial/_ScriptPartial.cshtml")
+
+    @await RenderSectionAsync("scripts", false)
 </body>
 
 </html>

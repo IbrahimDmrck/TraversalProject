@@ -43,6 +43,7 @@ namespace TraversalProject.Areas.Member.Controllers
         public IActionResult NewReservation(Reservation p)
         {
             p.AppUserId = 1;
+            p.Status = "Onay Bekliyor";
             _reservationManager.TAdd(p);
             return RedirectToAction("NewReservation", "Reservation");
 

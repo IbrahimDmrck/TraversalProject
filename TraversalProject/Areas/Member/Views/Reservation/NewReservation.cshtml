@@ -5,10 +5,10 @@
 }
 
 <h1>Yeni Rezervasyon Sayfası</h1>
-<form method="post">
+<form id="reservationForm" method="post">
     <div class="form-group">
         @Html.Label("Lokasyon")
-        <option>Lütfen bir lokasyon seçiniz</option>
+
         @Html.DropDownListFor(x => x.Destination, (List<SelectListItem>)ViewBag.v, new { @class = "form-control" })
     </div>
     <div class="form-group">
@@ -23,6 +23,34 @@
         @Html.Label("Varsa Eklemek İstedikleriniz")
         <textarea cols="10" rows="3" class="form-control" asp-for="Description"></textarea>
     </div>
-    <button class="btn btn-success">Rezervasyon Yap</button>
+    <button id="btn_add_reservtion" class="btn btn-success">Rezervasyon Yap</button>
 </form>
 
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#reservationForm").submit(function (e) {
+                e.preventDefault(); // Formun otomatik olarak gönderilmesini engelliyoruz.
+
+                // Formun verilerini sunucuya gönderiyoruz.
+                $.ajax({
+                    url: $(this).attr("action"),
+                    type: "post",
+                    data: $(this).serialize(), // Form verilerini alıyoruz
+                    success: function () {
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: 'Talebiniz Alındı',
+                            text: 'Rezervasyon talebiniz onay aşamasındadır. Lütfen web sitemizi takip edin! Talebiniz sonucunda bilgilendirileceksiniz.',
+                            showConfirmButton: false,
+                            timer: 6500
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+}
