@@ -1,8 +1,48 @@
-﻿
+﻿@model List<Reservation>
 @{
     ViewData["Title"] = "MyOldReservation";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
+@{ if (Model.Count() > 0)
+    {
+        <h1>Geçmiş Rezervasyonlar</h1>
 
-<h1>Geçmiş Rezervasyonlarım</h1>
+        <table class="table table-hover">
+            <thead class="bg-warning">
+                <tr>
+                    <th>#</th>
+                    <th>Lokasyon</th>
+                    <th>Kişi Sayısı</th>
+                    <th>Rezervasyon Tarihi</th>
+                    <th>Durum</th>
+                </tr>
+            </thead>
+            <tbody class="bg-gradient-info text-white fw-bold text-bold ">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.ReservationID</td>
+                        <td>@item.Destination.City</td>
+                        <td>@item.PersonCount</td>
+                        <td>@item.ReservationDate</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(item.Status))
+                            {
+                                @item.Status
+                            }
+                            else
+                            {
+                                <text>İşleminiz Onaylanmadı</text>
+                            }
+                        </td>
+                    </tr>
+                }
 
+            </tbody>
+        </table>
+
+    }
+    else
+    {
+        <h2>Geçmiş Rezervasyonunuz Bulunmamaktadır</h2>
+    } }

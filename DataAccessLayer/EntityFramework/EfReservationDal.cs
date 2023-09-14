@@ -2,6 +2,7 @@
 using DataAccessLayer.Concrete;
 using DataAccessLayer.Repository;
 using EntityLayer.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,21 +15,26 @@ namespace DataAccessLayer.EntityFramework
     {
         public List<Reservation> GetListWithReservationByAccepted(int id)
         {
-            throw new NotImplementedException();
-            //using (var context=new Context())
-            //{
-
-            //}
+            using (var context = new Context())
+            {
+                return context.Reservations.Include(x => x.Destination).Where(x => x.AppUserId == id && x.Status == "Onaylandı").ToList();
+            }
         }
 
         public List<Reservation> GetListWithReservationByPrevious(int id)
         {
-            throw new NotImplementedException();
+            using (var context = new Context())
+            {
+                return context.Reservations.Include(x => x.Destination).Where(x => x.AppUserId == id && x.Status == "Geçmiş Rezervasyon").ToList();
+            }
         }
 
         public List<Reservation> GetListWithReservationByWaitApproval(int id)
         {
-            throw new NotImplementedException();
+            using (var context = new Context())
+            {
+                return context.Reservations.Include(x => x.Destination).Where(x=>x.AppUserId==id && x.Status=="Onay Bekliyor").ToList();
+            }
         }
     }
 }
