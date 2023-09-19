@@ -1,0 +1,113 @@
+﻿@model EntityLayer.Concrete.Destination
+@{
+    ViewData["Title"] = "AddDestination";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-xxl">
+    <div class="card mb-4">
+        <div class="card-header d-flex align-items-center justify-content-between">
+            <h5 class="mb-0">Yeni Rota Oluşturma Sayfası</h5>
+            @*<small class="text-muted float-end">Default label</small>*@
+        </div>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-name">Şehir</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" asp-for="City" id="basic-default-name" placeholder="Şehir" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-company">Gün / Gece</label>
+                    <div class="col-sm-10">
+                        <input type="text"
+                               asp-for="DayNight"
+                               class="form-control"
+                               id="basic-default-company"
+                               placeholder="Gün / Gece" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-email">Fiyat</label>
+                    <div class="col-sm-10">
+                        <div class="input-group input-group-merge">
+                            <input type="text"
+                                   asp-for="Price"
+                                   class="form-control"
+                                   placeholder="Fiyat" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-phone">Ana Görsel</label>
+                    <div class="col-sm-10">
+                        <input type="file"
+                               asp-for="Image"
+                               id="formFile"
+                               class="form-control phone-mask" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-phone">Kapak Görseli</label>
+                    <div class="col-sm-10">
+                        <input type="file"
+                               asp-for="CoverImage"
+                               id="formFile"
+                               class="form-control phone-mask" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-phone">Kapak Görseli</label>
+                    <div class="col-sm-10">
+                        <input type="file"
+                               asp-for="Image2"
+                               id="formFile"
+                               class="form-control phone-mask" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-email">Kapasite</label>
+                    <div class="col-sm-10">
+                        <div class="input-group input-group-merge">
+                            <input type="text"
+                                   asp-for="Capacity"
+                                   class="form-control"
+                                   placeholder="Fiyat" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-message">Açıklama</label>
+                    <div class="col-sm-10">
+                        <textarea asp-for="Description"
+                                  class="form-control"
+                                  placeholder="Açıklama ..."></textarea>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-message">Detay - 1</label>
+                    <div class="col-sm-10">
+                        <textarea asp-for="Details1"
+                                  class="form-control"
+                                  placeholder="Açıklama ..."></textarea>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-message">Detay - 2</label>
+                    <div class="col-sm-10">
+                        <textarea asp-for="Details2"
+                                  class="form-control"
+                                  placeholder="Açıklama ..."></textarea>
+                    </div>
+                </div>
+                <div class="row justify-content-end">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary">Tur Oluştur</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
