@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace TraversalProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    //[Route("Admin/[controller]/[action]")]
     public class DestinationController : Controller
     {
         DestinationManager destinationManager = new DestinationManager(new EfDestinationDal());
@@ -29,14 +30,17 @@ namespace TraversalProject.Areas.Admin.Controllers
         public IActionResult AddDestination(Destination destination)
         {
             destinationManager.TAdd(destination);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Destination", new { area = "Admin" });
+
         }
+
 
         public IActionResult DeleteDestination(int id)
         {
             var values = destinationManager.TGetByID(id);
             destinationManager.TDelete(values);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Destination", new { area = "Admin" });
+
         }
 
         [HttpGet]
@@ -50,7 +54,8 @@ namespace TraversalProject.Areas.Admin.Controllers
         public IActionResult UpdateDestination(Destination destination)
         {
             destinationManager.TUpdate(destination);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Destination", new { area = "Admin" });
+
         }
     }
 }
