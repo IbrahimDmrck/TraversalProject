@@ -17,6 +17,7 @@
                     <label class="col-sm-2 col-form-label" for="basic-default-name">Ad Soyad</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" asp-for="Name" id="basic-default-name" placeholder="Ad Soyad" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -48,6 +49,7 @@
                                asp-for="Image"
                                id="formFile"
                                class="form-control phone-mask" />
+                     @*   <span asp-validation-for="Image" class="text-danger"></span>*@
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -56,6 +58,7 @@
                         <textarea asp-for="Description"
                                   class="form-control"
                                   placeholder="Açıklama ..."></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="row justify-content-end">
