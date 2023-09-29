@@ -20,11 +20,13 @@ namespace TraversalProject.Controllers
 
         public IActionResult Index()
         {
+            _logger.LogInformation("Loglama test ediyoruz");
             return View();
         }
 
         public IActionResult Privacy()
         {
+            _logger.LogInformation("Loglama test ediyoruz");
             return View();
         }
 

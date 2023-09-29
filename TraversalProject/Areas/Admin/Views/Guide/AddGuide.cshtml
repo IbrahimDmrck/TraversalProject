@@ -1,8 +1,70 @@
-﻿
+﻿@model EntityLayer.Concrete.Guide
 @{
     ViewData["Title"] = "AddGuide";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>AddGuide</h1>
+<div class="col-xxl">
+    <div class="card mb-4">
+        <div class="card-header d-flex align-items-center justify-content-between">
+            <h5 class="mb-0">Yeni Rehber Oluşturma Sayfası</h5>
+            @*<small class="text-muted float-end">Default label</small>*@
+        </div>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                <div class="row mb-3">
+                    <input type="text" value="true" asp-for="Status" hidden />
+                    <label class="col-sm-2 col-form-label" for="basic-default-name">Ad Soyad</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" asp-for="Name" id="basic-default-name" placeholder="Ad Soyad" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-company">İnstagram Url</label>
+                    <div class="col-sm-10">
+                        <input type="text"
+                               asp-for="InstagramUrl"
+                               class="form-control"
+                               id="basic-default-company"
+                               placeholder="Gün / Gece" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-email">Twitter Url</label>
+                    <div class="col-sm-10">
+                        <div class="input-group input-group-merge">
+                            <input type="text"
+                                   asp-for="TwitterUrl"
+                                   class="form-control"
+                                   placeholder="Twitter Url" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-phone">Rehber Fotoğrafı</label>
+                    <div class="col-sm-10">
+                        <input type="file"
+                               asp-for="Image"
+                               id="formFile"
+                               class="form-control phone-mask" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-message">Açıklama</label>
+                    <div class="col-sm-10">
+                        <textarea asp-for="Description"
+                                  class="form-control"
+                                  placeholder="Açıklama ..."></textarea>
+                    </div>
+                </div>
+                <div class="row justify-content-end">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary">Rehber Ekle</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
