@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 namespace TraversalProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Route("Admin/Guide")]
+   // [Route("Admin/[controller]/[action]/{id?}")]
     public class GuideController : Controller
     {
         IGuideService _guideService;
@@ -19,7 +21,7 @@ namespace TraversalProject.Areas.Admin.Controllers
         {
             _guideService = guideService;
         }
-
+       [Route("Index")]
         public IActionResult Index()
         {
             var values = _guideService.TGetList();
@@ -27,6 +29,7 @@ namespace TraversalProject.Areas.Admin.Controllers
             return View(values);
         }
 
+       [Route("AddGuide")]
         [HttpGet]
         public IActionResult AddGuide()
         {
@@ -55,6 +58,7 @@ namespace TraversalProject.Areas.Admin.Controllers
         }
 
         [HttpGet]
+       [Route("EditGuide/{id}")]
         public IActionResult EditGuide(int id)
         {
             var values=_guideService.TGetByID(id);
@@ -69,12 +73,17 @@ namespace TraversalProject.Areas.Admin.Controllers
             return RedirectToAction("Index", "Guide");
         }
 
+        [Route("ChangeToTrue/{id}")]
         public IActionResult ChangeToTrue(int id)
         {
+            _guideService.TChangeToTrue(id);
             return RedirectToAction("Index", "Guide");
         }
+
+       [Route("ChangeToFalse/{id}")]
         public IActionResult ChangeToFalse(int id)
         {
+            _guideService.TChangeToFalse(id);
             return RedirectToAction("Index", "Guide");
         }
     }
