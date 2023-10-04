@@ -43,6 +43,7 @@
     <!-- / Layout wrapper -->
     <!-- Core JS -->
     @await Html.PartialAsync("~/Views/AdminLayoutPartial/_ScriptsPartial.cshtml")
+    @await RenderSectionAsync("scripts", false)
 
 </body>
 </html>
