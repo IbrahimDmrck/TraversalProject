@@ -1,0 +1,31 @@
+﻿@model List<AnnouncementListViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Duyuru Listesi</h1>
+
+<table class="table table-bordered table-striped table-hover"> 
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>Başlık</td>
+            <td>İçerik</td>
+            <td>Detaylar</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.Title</td>
+                <td>@item.Content</td>
+                <td><a href="#" class="btn btn-secondary">Detaylar</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
