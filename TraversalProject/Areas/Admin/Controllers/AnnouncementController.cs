@@ -1,4 +1,6 @@
-﻿using BusinessLayer.Abstract;
+﻿using AutoMapper;
+using BusinessLayer.Abstract;
+using DTOLayer.AnnouncementDTOs;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -15,27 +17,18 @@ namespace TraversalProject.Areas.Admin.Controllers
     public class AnnouncementController : Controller
     {
         IAnnouncementService _announcementService;
+        IMapper _mapper;
 
-        public AnnouncementController(IAnnouncementService announcementService)
+        public AnnouncementController(IAnnouncementService announcementService, IMapper mapper)
         {
             _announcementService = announcementService;
+            _mapper = mapper;
         }
 
         public IActionResult Index()
         {
-            List<Announcement> announcements = _announcementService.TGetList();
-            List<AnnouncementListViewModel> model = new List<AnnouncementListViewModel>();
-
-            foreach (var item in announcements)
-            {
-                AnnouncementListViewModel announcementListViewModel = new AnnouncementListViewModel();
-                announcementListViewModel.ID = item.AnnouncementID;
-                announcementListViewModel.Title = item.Tİtle;
-                announcementListViewModel.Content = item.Content;
-
-                model.Add(announcementListViewModel);
-            }
-            return View(model);
+            var values = _mapper.Map<List<AnnouncementListDTO>>(_announcementService.TGetList());
+            return View(values);
         }
         [HttpGet]
         public IActionResult AddAnnouncement()
@@ -44,8 +37,19 @@ namespace TraversalProject.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddAnnouncement(string x)
+        public IActionResult AddAnnouncement(AnnouncementAddDTO model)
         {
+            if (ModelState.IsValid)
+            {
+                _announcementService.TAdd(new Announcement()
+                {
+                    Title = model.Title,
+                    Content = model.Content,
+                    Date = Convert.ToDateTime(DateTime.Now.ToShortDateString())
+                });
+                return RedirectToAction("Index", "Announcement");
+            }
+
             return View();
         }
     }

@@ -21,6 +21,9 @@ namespace TraversalProject.Mapping.AutoMapperProfile
 
             CreateMap<AppUserLoginDTO, AppUser>();
             CreateMap<AppUser, AppUserLoginDTO>();
+
+            CreateMap<AnnouncementListDTO, Announcement>();
+            CreateMap<Announcement, AnnouncementListDTO>();
         }
     }
 }
