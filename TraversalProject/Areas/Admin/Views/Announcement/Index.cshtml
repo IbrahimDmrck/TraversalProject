@@ -12,6 +12,7 @@
             <td>#</td>
             <td>Başlık</td>
             <td>İçerik</td>
+            <td>Sil</td>
             <td>Detaylar</td>
         </tr>
     </thead>
@@ -22,6 +23,7 @@
                 <td>@item.AnnouncementID</td>
                 <td>@item.Title</td>
                 <td>@item.Content</td>
+                <td><a href="/Admin/Announcement/DeleteAnnouncement/@item.AnnouncementID" class="btn btn-danger">Sil</a></td>
                 <td><a href="#" class="btn btn-secondary">Detaylar</a></td>
             </tr>
         }

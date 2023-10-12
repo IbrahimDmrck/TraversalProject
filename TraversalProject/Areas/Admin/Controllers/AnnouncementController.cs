@@ -52,5 +52,11 @@ namespace TraversalProject.Areas.Admin.Controllers
 
             return View();
         }
+        public IActionResult DeleteAnnouncement(int id)
+        {
+            var values = _announcementService.TGetByID(id);
+            _announcementService.TDelete(values);
+            return RedirectToAction("Index", "Announcement");
+        }
     }
 }
