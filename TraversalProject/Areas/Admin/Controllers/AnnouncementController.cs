@@ -58,5 +58,29 @@ namespace TraversalProject.Areas.Admin.Controllers
             _announcementService.TDelete(values);
             return RedirectToAction("Index", "Announcement");
         }
+
+        [HttpGet]
+        public IActionResult UpdateAnnouncement(int id)
+        {
+            var values = _mapper.Map<AnnouncementUpdateDTO>(_announcementService.TGetByID(id));
+            return View(values);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateAnnouncement(AnnouncementUpdateDTO model)
+        {
+            if (ModelState.IsValid)
+            {
+                _announcementService.TUpdate(new Announcement()
+                {
+                    AnnouncementID=model.AnnouncementID,
+                    Title = model.Title,
+                    Content = model.Content,
+                    Date = Convert.ToDateTime(DateTime.Now.ToShortDateString()),
+                });
+                 return RedirectToAction("Index", "Announcement");
+            }
+            return View();
+        }
     }
 }
